@@ -14,7 +14,7 @@ const projects = [
     tags: ["Next JS", "Node", "MongoDB", "Tailwind", "AI"],
     link: "https://github.com/jameslucky007/Mind-Script",
     category: "personal",
-    date: "2025",
+    date: "2025-01",
   },
 
   {
@@ -25,7 +25,7 @@ const projects = [
     tags: ["Next JS", "Python", "Flask", "ML"],
     link: "https://email-spam-frontend.vercel.app/",
     category: "personal",
-    date: "2024",
+    date: "2024-01",
   },
 
   /* CLIENT / FREELANCE */
@@ -35,10 +35,10 @@ const projects = [
     title: "RedSecureMe",
     description:
       "Cybersecurity business website built for client brand positioning.",
-    tags: ["Client", "Business Website"],
+    tags: ["Next Js", "Tailwind"],
     link: "https://redsecureme.com/",
     category: "freelance",
-    date: "2023",
+    date: "2023-08",
   },
 
   {
@@ -46,10 +46,10 @@ const projects = [
     title: "Alyasmin Beauty Salon",
     description:
       "Responsive salon website focused on service presentation and booking UX.",
-    tags: ["Freelance", "UI/UX"],
+    tags: ["wordpress"],
     link: "https://alyasminbeautysalon.com/",
     category: "freelance",
-    date: "2024",
+    date: "2024-09",
   },
 
   {
@@ -57,10 +57,21 @@ const projects = [
     title: "Revosha",
     description:
       "Modern brand website with clean layout and responsive structure.",
-    tags: ["Freelance", "Frontend"],
+    tags: ["Next Js", "Tailwind", "Node JS", "MongoDB"],
     link: "https://www.revosha.com/",
     category: "freelance",
-    date: "2025",
+    date: "2025-06",
+  },
+
+  {
+    image: "/kwiq24.png",
+    title: "Kwiq 24",
+    description:
+      "Sleek website for a local business, emphasizing user-friendly design.",
+    tags: ["Next Js", "Tailwind", "Email JS", "prisma"],
+    link: "https://kwiq24.in/",
+    category: "freelance",
+    date: "2026-05",
   },
 ];
 
@@ -69,9 +80,10 @@ const projects = [
 const categories = [
   { label: "Personal Project", value: "personal" },
   { label: "UI/UX", value: "uiux" },
-  { label: "Freelance", value: "freelance" },
+  { label: "Websites", value: "freelance" },
+  { label: "Applications", value: "apps" },
   { label: "AI", value: "ai" },
-  { label: "Extensions", value: "extension" },
+  { label: "Extensions", value: "extensions" },
 ];
 
 const ITEMS_PER_PAGE = 3;
@@ -80,19 +92,27 @@ const Project = () => {
   const [activeCategory, setActiveCategory] = useState("personal");
   const [currentPage, setCurrentPage] = useState(0);
 
-  const filteredProjects = projects.filter(
+  /* SORT RECENT PROJECTS FIRST */
+
+  const sortedProjects = [...projects].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  const filteredProjects = sortedProjects.filter(
     (proj) => proj.category === activeCategory
   );
 
   const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
 
   const startIndex = currentPage * ITEMS_PER_PAGE;
+
   const currentProjects = filteredProjects.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
 
   /* Reset page when category changes */
+
   useEffect(() => {
     setCurrentPage(0);
   }, [activeCategory]);
@@ -156,7 +176,9 @@ const Project = () => {
                 className="w-[230px] h-[120px] object-cover rounded-md 
                 mb-4 md:mb-0 md:mr-8 border border-[#2e3a50]"
                 style={{ aspectRatio: "16/9" }}
-                onError={(e) => (e.target.style.display = "none")}
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
               />
 
               <div className="flex-1">
@@ -164,7 +186,10 @@ const Project = () => {
                   <div className="text-xl font-semibold text-blue-300">
                     {proj.title}
                   </div>
-                  <span className="text-xs text-gray-400">{proj.date}</span>
+
+                  <span className="text-xs text-gray-400">
+                    {proj.date}
+                  </span>
                 </div>
 
                 <p className="text-[#d0d7de] mb-3 leading-relaxed">
@@ -240,14 +265,17 @@ const Project = () => {
             <h2 className="text-lg sm:text-xl font-semibold text-slate-100">
               Connect Me
             </h2>
+
             <p className="text-slate-400 text-sm sm:text-base mt-1">
               luckya.developer@gmail.com
             </p>
           </div>
 
-          <FiArrowUpRight className="text-blue-400 text-2xl 
-          transform transition-transform duration-300
-          group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <FiArrowUpRight
+            className="text-blue-400 text-2xl 
+            transform transition-transform duration-300
+            group-hover:translate-x-1 group-hover:-translate-y-1"
+          />
         </a>
       </div>
     </section>
