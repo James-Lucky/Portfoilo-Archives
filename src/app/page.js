@@ -4,6 +4,8 @@ import Hero from "../components/Hero";
 import Sidebar from "../components/Sidebar";
 import Background from "../components/Background";
 import { IoIosInfinite } from "react-icons/io";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -15,6 +17,13 @@ export default function Home() {
     }, 1500);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
   }, []);
 
   useEffect(() => {
