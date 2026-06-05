@@ -3,6 +3,7 @@ import About from "./About";
 import Experience from "./Experience";
 import Skill from "./Skill";
 import Project from "./Project";
+import Education from "./Education";
 
 const Hero = () => {
   return (
@@ -13,6 +14,9 @@ const Hero = () => {
         </section>
         <section id="skills" data-aos="fade-up">
           <Skill />
+        </section>
+        <section id="education" data-aos="fade-up">
+          <Education />
         </section>
         <section id="experience" data-aos="fade-up">
           <Experience />
