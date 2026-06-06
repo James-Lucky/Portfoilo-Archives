@@ -57,19 +57,11 @@ const Background = () => {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#090d16]">
-      {/* Dynamic Shifting Mesh Gradient Blobs */}
       <div className="absolute inset-0 z-0 opacity-40 filter blur-[100px] sm:blur-[140px]">
-        {/* Blob 1: Gorgeous Light Blue / Cyan */}
         <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-cyan-500/20 -top-10 -left-10 animate-float-1" />
-
-        {/* Blob 2: Sleek Deep Violet */}
         <div className="absolute w-[350px] h-[350px] sm:w-[600px] sm:h-[600px] rounded-full bg-violet-600/15 bottom-10 right-10 animate-float-2" />
-
-        {/* Blob 3: Rich Blue Indigo */}
         <div className="absolute w-[250px] h-[250px] sm:w-[450px] sm:h-[450px] rounded-full bg-blue-600/20 top-1/3 left-1/4 sm:left-1/3 animate-float-3" />
       </div>
-
-      {/* Spring-Smoothed Spotlight Glow (Centered relative to the cursor) */}
       <div
         ref={glowRef}
         className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-10 will-change-transform opacity-75"

@@ -21,7 +21,7 @@ const About = () => {
           </h2>
 
           <a
-            href="https://drive.google.com/file/d/1_YjNAWFIHHVIlBofJ5WMM3OxH0qcLAR-/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1HHEECab4hf4yKF1xNaVBQjgSvnVtKWPo/view?usp=sharing"
             id="about"
             className="group inline-flex items-center gap-2 text-blue-300 hover:text-blue-400 transition-all duration-200 text-lg sm:text-xl font-semibold"
           >
