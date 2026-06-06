@@ -23,6 +23,7 @@ const Sidebar = () => {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "education", label: "Education" },
+    { id: "certification", label: "Certifications" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
   ];
