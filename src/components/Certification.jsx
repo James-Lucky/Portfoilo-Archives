@@ -1,67 +1,156 @@
 "use client";
 import React from "react";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const certificates = [
-  { title: "React Developer", issuer: "Meta", date: "Jan 2024" },
-  { title: "Machine Learning", issuer: "Stanford", date: "Mar 2024" },
-  { title: "Data Structures in C++", issuer: "Coding Ninjas", date: "May 2024" },
-  { title: "UI/UX Design", issuer: "Google", date: "Jul 2024" },
-  { title: "Full Stack MERN", issuer: "Udemy", date: "Sep 2024" },
+  { 
+    title: "React Developer", 
+    issuer: "Meta", 
+    date: "Jan 2024",
+    image: "/portfolio.png", // replace with actual image path
+    link: "#"
+  },
+  { 
+    title: "Machine Learning", 
+    issuer: "Stanford", 
+    date: "Mar 2024",
+    image: "/mindscript.png", // replace with actual image path
+    link: "#"
+  },
+  { 
+    title: "Data Structures in C++", 
+    issuer: "Coding Ninjas", 
+    date: "May 2024",
+    image: "/email-spam.png", // replace with actual image path
+    link: "#"
+  },
+  { 
+    title: "UI/UX Design", 
+    issuer: "Google", 
+    date: "Jul 2024",
+    image: "/redsecureme.png", // replace with actual image path
+    link: "#"
+  },
+  { 
+    title: "Full Stack MERN", 
+    issuer: "Udemy", 
+    date: "Sep 2024",
+    image: "/alyasmin.png", // replace with actual image path
+    link: "#"
+  },
 ];
 
 const CertificationSection = () => {
-  // Duplicate array to create a seamless infinite loop
-  const duplicatedCertificates = [...certificates, ...certificates];
-
   return (
     <div className="max-w-5xl mx-auto px-4 py-12" id="certification">
-      <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-blue-300 mb-10">
-        Certifications
-      </h2>
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-blue-300">
+          Certifications
+        </h2>
+      </div>
 
-      {/* Marquee Container with fade effect */}
+      {/* Scrollable Container with Fade Effect and Hidden Overflow */}
       <div 
-        className="relative overflow-hidden w-full flex items-center py-4"
+        className="relative w-full overflow-hidden"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
         }}
       >
-        <div 
-          className="flex gap-6 w-max animate-scroll hover:[animation-play-state:paused]"
-        >
-          {duplicatedCertificates.map((cert, index) => (
-            <div 
-              key={index} 
-              className="w-[250px] sm:w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center shadow-xl hover:-translate-y-1"
-            >
-              <div className="w-16 h-16 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-300 font-bold text-2xl shadow-inner">
-                {cert.issuer.charAt(0)}
-              </div>
-              <h3 className="text-lg font-semibold text-slate-200 mb-2">
-                {cert.title}
-              </h3>
-              <p className="text-sm text-blue-400 mb-1 font-medium">{cert.issuer}</p>
-              <p className="text-xs text-slate-500">{cert.date}</p>
-            </div>
-          ))}
+        <div className="flex w-max animate-marquee py-4">
+          {/* Copy 1 */}
+          <div className="flex gap-6 shrink-0 pr-6">
+            {certificates.map((cert, index) => (
+              <a 
+                key={`a-${index}`} 
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden block"
+              >
+                {/* Image Section */}
+                <div className="h-[160px] w-full overflow-hidden relative bg-slate-800/50">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      // Fallback to text initials if image fails to load
+                      e.currentTarget.style.display = "none";
+                      if (e.currentTarget.parentElement) {
+                          e.currentTarget.parentElement.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(59,130,246,0.1);color:#93c5fd;font-size:2.5rem;font-weight:bold;">${cert.issuer.charAt(0)}</div>`;
+                      }
+                    }}
+                  />
+                  {/* Arrow Icon on Hover */}
+                  <div className="absolute top-3 right-3 bg-slate-900/60 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FiArrowUpRight className="text-white" />
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-slate-200 mb-1 group-hover:text-blue-300 transition-colors">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-blue-400 mb-3 font-medium">{cert.issuer}</p>
+                  <div className="mt-auto">
+                    <span className="text-xs font-mono text-slate-500 bg-slate-800/80 px-2 py-1 rounded">
+                      {cert.date}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Copy 2 (Enables infinite seamless loop) */}
+          <div className="flex gap-6 shrink-0 pr-6">
+            {certificates.map((cert, index) => (
+              <a 
+                key={`b-${index}`} 
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden block"
+              >
+                {/* Image Section */}
+                <div className="h-[160px] w-full overflow-hidden relative bg-slate-800/50">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      // Fallback to text initials if image fails to load
+                      e.currentTarget.style.display = "none";
+                      if (e.currentTarget.parentElement) {
+                          e.currentTarget.parentElement.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(59,130,246,0.1);color:#93c5fd;font-size:2.5rem;font-weight:bold;">${cert.issuer.charAt(0)}</div>`;
+                      }
+                    }}
+                  />
+                  {/* Arrow Icon on Hover */}
+                  <div className="absolute top-3 right-3 bg-slate-900/60 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FiArrowUpRight className="text-white" />
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-slate-200 mb-1 group-hover:text-blue-300 transition-colors">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-blue-400 mb-3 font-medium">{cert.issuer}</p>
+                  <div className="mt-auto">
+                    <span className="text-xs font-mono text-slate-500 bg-slate-800/80 px-2 py-1 rounded">
+                      {cert.date}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            /* Scroll half the width since we duplicated the array (plus half the gap) */
-            transform: translateX(calc(-50% - 0.75rem));
-          }
-        }
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-        }
-      `}</style>
     </div>
   );
 };
