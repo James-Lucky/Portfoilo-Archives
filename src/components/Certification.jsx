@@ -4,40 +4,27 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 const certificates = [
   { 
-    title: "React Developer", 
-    issuer: "Meta", 
-    date: "Jan 2024",
-    image: "/portfolio.png", // replace with actual image path
+    title: "Wordpress", 
+    issuer: "Great Learning", 
+    date: "Aug 2021",
+    image: "/wordpress.png", 
     link: "#"
   },
   { 
-    title: "Machine Learning", 
-    issuer: "Stanford", 
-    date: "Mar 2024",
-    image: "/mindscript.png", // replace with actual image path
+    title: "AWS", 
+    issuer: "Edureka", 
+    date: "May 2022",
+    image: "/aws.png", 
     link: "#"
   },
   { 
-    title: "Data Structures in C++", 
-    issuer: "Coding Ninjas", 
-    date: "May 2024",
-    image: "/email-spam.png", // replace with actual image path
+    title: "Robotics", 
+    issuer: "Kodacy", 
+    date: "Oct 2024",
+    image: "/robotics.jpg", 
     link: "#"
   },
-  { 
-    title: "UI/UX Design", 
-    issuer: "Google", 
-    date: "Jul 2024",
-    image: "/redsecureme.png", // replace with actual image path
-    link: "#"
-  },
-  { 
-    title: "Full Stack MERN", 
-    issuer: "Udemy", 
-    date: "Sep 2024",
-    image: "/alyasmin.png", // replace with actual image path
-    link: "#"
-  },
+
 ];
 
 const CertificationSection = () => {
