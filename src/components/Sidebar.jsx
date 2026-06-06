@@ -93,11 +93,6 @@ const Sidebar = () => {
           Web Developer | Software Engineer
         </h4>
 
-        <p className="mt-4 text-gray-300 text-sm lg:text-base max-w-xs lg:max-w-none">
-          I create seamless, intelligent interfaces where design meets
-          innovation
-        </p>
-
         <nav className="mt-8 lg:mt-10 space-y-2 text-l font-semibold tracking-wide flex flex-col items-center lg:items-start">
           {links.map((link) => (
             <a
