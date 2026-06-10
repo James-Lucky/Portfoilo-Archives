@@ -7,13 +7,13 @@ const projects = [
  /* Ui and ux */
    {
     image: "/portfolio.png",
-    title: "MindScript",
+    title: "My Portfolio",
     description:
-      "AI powered text generation platform with real-time responses and user session management.",
-    tags: ["Next JS", "Node", "MongoDB", "Tailwind", "AI"],
+      "A personal website built with Next.js and Tailwind CSS to showcase my skills, projects, and certifications.",
+    tags: ["Next JS", "Tailwind CSS"],
     link: "https://www.behance.net/gallery/250094761/Portfolio",
     category: "uiux",
-    date: "2025-03",
+    date: "2026-03",
   },
   /* PERSONAL */
 
