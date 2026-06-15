@@ -53,7 +53,7 @@ const CertificationSection = () => {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden block"
+                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden"
               >
                 {/* Image Section */}
                 <div className="h-[160px] w-full overflow-hidden relative bg-slate-800/50">
@@ -99,7 +99,7 @@ const CertificationSection = () => {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden block"
+                className="group w-[280px] shrink-0 bg-[#222b3a] hover:bg-[#263141] border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 rounded-xl flex flex-col shadow-xl hover:-translate-y-1 relative overflow-hidden"
               >
                 {/* Image Section */}
                 <div className="h-[160px] w-full overflow-hidden relative bg-slate-800/50">
