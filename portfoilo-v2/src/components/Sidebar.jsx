@@ -90,7 +90,7 @@ const Sidebar = () => {
         </a>
 
         <h4 className="text-lg lg:text-l mt-2 text-blue-300">
-          Web Developer | Software Engineer
+           Developer | Engineer | Designer
         </h4>
 
         <nav className="mt-8 lg:mt-10 space-y-2 text-l font-semibold tracking-wide flex flex-col items-center lg:items-start">
